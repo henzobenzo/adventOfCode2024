@@ -1025,10 +1025,23 @@ for i in range(len(integers)):
 
 dataSet1 = sorted(dataSet1)
 dataSet2 = sorted(dataSet2)
+dataSet1 = [int(s) for s in dataSet1]
+dataSet2 = [int(s) for s in dataSet2]
+
 
 b = 0
 for i in range(len(dataSet2)):
     b += abs(int(dataSet1[i]) - int(dataSet2[i]))
 
-print(b) 
+# print(b) 
+
+similarityScore = 0
+for i in range(len(dataSet1)):
+    index = 0
+    for a in dataSet2:
+        if dataSet1[i] == a:
+            index = index + 1
+    similarityScore = similarityScore + (dataSet1[i] * index)
+
+print(similarityScore)
 
